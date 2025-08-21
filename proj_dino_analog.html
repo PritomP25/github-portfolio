@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Analog Dino Game - Portfolio Showcase</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/assets/css/project.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <div class="site-header">
+                <div class="container">
+                    <h1 class="project-title">🎮 Analog Dino Game</h1>
+                    <p class="subtitle">A Hardware Spin on the Classic Chrome T-Rex Runner</p>
+                    <ul class="quick-facts" role="list">
+                        <li><strong>Type:</strong> Final Course Project</li>
+                        <li><strong>Display:</strong> 4-LED array (Player + Obstacles)</li>
+                        <li><strong>Core:</strong> Analog timing & logic + Arduino for memory</li>
+                    </ul>
+                    <p>This project was a joint effort with me, Adam Todd, and Jay Tang.</p>
+                    <a class="btn" href="#demo">Jump to Demo</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="section container">
+                <h2>Overview</h2>
+                <p>
+                    This project recreates the iconic <b>Google Chrome Dinosaur Game</b> (the offline “T-Rex Runner”)
+                    using <b> analog circuits, semiconductor devices, logic gates, and LEDS</b>. Instead of a computer
+                    screen, the gameplay happens on a <b>4-LED array:</b>
+                </p>
+                <ul>
+                    <li>The <b>leftmost LED</b> represents the dinosaur.</li>
+                    <li>The <b>three right LEDs</b> represent incoming obstacles.</li>
+                    <li>Obstacles move left across the LEDs, one step per clock cycle.</li>
+                    <li>The player must <b>press a button at the correct time</b> to jump and avoid collision.</li>
+                </ul>
+                <p>
+                    If you mistime your jump, the dinosaur LED turns off—<em>game over</em>. The game increases in
+                    challenge as the clock drives faster sequences.
+                </p>
+            </section>
+
+            <section class="section container">
+                <figure>
+                    <img src="/static/images/P1_final_circuit2.jpg" alt="Final showcase" />
+                    <figcaption>Final Circuit implemenation for demo purposes!</figcaption>
+                </figure>
+            </section>
+
+            <section id="demo" class="section container">
+                <h2>Demo</h2>
+                <div class="media-grid">
+                    <figure class="media">
+                        <video controls playsinline poster="">
+                            <source src="" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Milestone 1 Demo.</figcaption>
+                    </figure>
+
+                    <figure class="media">
+                        <video controls playsinline poster="/static/images/poster-obstacle-seq.jpg">
+                            <source src="/static/videos/05-MS2_video.mov" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Milestone 2 Demo.</figcaption>
+                    </figure>
+
+                    <figure class="media">
+                        <video controls playsinline poster="/static/images/poster-jump.gif">
+                            <source src="/static/videos/06-MS3_video.mov" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Milestone 3 Demo.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section container">
+                <h2>Equipment &amp; Tools</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Design &amp; Simulation</h3>
+                        <ul>
+                            <li>LTspice (schematics &amp; simulation)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Inputs &amp; Outputs</h3>
+                        <ul>
+                            <li>Slide switch (user input)</li>
+                            <li>4× LEDs (player + 3 obstacle positions)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Timing / Oscillators</h3>
+                        <ul>
+                            <li>Astable Multivibrator using LF351 Op-Amp (MV)</li>
+                            <li>BJT Astable Multivibrator (for MS3 variant)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Logic &amp; Memory</h3>
+                        <ul>
+                            <li>Diode AND (1N914)</li>
+                            <li>CMOS NAND &amp; NOT (ALD1105 Dual CMOS)</li>
+                            <li>RTL AND (BJT 2N3904)</li>
+                            <li>D-Latch behavior for state storage</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Transistors / Switching</h3>
+                        <ul>
+                            <li>2N7000 N-Channel MOSFET (electronic switch)</li>
+                            <li>2N3904 NPN BJT</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Microcontroller</h3>
+                        <ul>
+                            <li>Arduino Uno (sequencing &amp; compact memory substitute)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Test &amp; Measurement</h3>
+                        <ul>
+                            <li>Bench supply / board supply (e.g., M2K), multimeters, scope traces</li>
+                        </ul>
+                    </article>
+                </div>
+                <p class="fineprint">
+                    Full bill of materials and references are documented in the project manual (see
+                    <a href="#references">References</a>).
+                </p>
+            </section>
+
+            <section class="section container">
+                <h2>Technical Breakdown</h2>
+
+                <details class="detail" open>
+                    <summary><strong>Milestone 1 – Jumping &amp; Timing</strong></summary>
+                    <div class="detail-body">
+                        <ul>
+                            <li>Astable multivibrator generates the clock (square wave).</li>
+                            <li>Diode-based AND gate allows jump only while clock is HIGH.</li>
+                            <li>Clock LED indicates valid jump window; Jump LED confirms action.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>Milestone 2 – Memory &amp; State</strong></summary>
+                    <div class="detail-body">
+                        <ul>
+                            <li>CMOS NAND + feedback to form D-latch behavior (Q follows D when enabled).</li>
+                            <li>2N7000 MOSFET isolates LED load to preserve logic levels.</li>
+                            <li>Sequential LED states represent obstacle positions.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>Milestone 3 – Integrated Gameplay</strong></summary>
+                    <div class="detail-body">
+                        <ul>
+                            <li>Integrated timing + logic + memory into one loop.</li>
+                            <li>Arduino used to compactly hold prior states (instead of ~6 discrete flip-flops).</li>
+                            <li>Collision check via RTL AND (LED3 &amp; no jump → lose condition).</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+
+            <section class="section container">
+                <h2>Challenges &amp; Trade-offs</h2>
+                <ul class="bullets">
+                    <li><strong>Voltage drops</strong> from diode logic limited stage depth; moved toward CMOS.</li>
+                    <li><strong>Floating inputs / noise</strong> with buttons; slide switch for reliable edges.</li>
+                    <li>
+                        <strong>Power constraints</strong> with RTL chains → current draw &amp; level-shifting pain.
+                    </li>
+                    <li><strong>Scalability</strong>: Arduino substituted for a large bank of flip-flops.</li>
+                </ul>
+            </section>
+
+            <section class="section container">
+                <h2>Future Improvements</h2>
+                <ul class="bullets">
+                    <li>Debounced push button input (intuitive play + clean edges).</li>
+                    <li>Player feedback (e.g., bi-color LED on fail; trailing LEDs for pass-by).</li>
+                    <li>Dynamic difficulty via higher clock or multi-tick state steps.</li>
+                    <li>Operate at lower voltage (e.g., 3.3V) to reduce power and heat.</li>
+                    <li>Possible using PCB to make our circuit more compact.</li>
+                </ul>
+            </section>
+
+            <section class="section container">
+                <h2>What I Learned</h2>
+                <ul class="bullets">
+                    <li>Translating a digital game concept into analog timing and logic.</li>
+                    <li>Practical limitations of diode, CMOS, and RTL logic gates in real-world circuits.</li>
+                    <li>Balancing design complexity with project feasibility under time and power constraints.</li>
+                    <li>How to use an Arduino as a hybrid analog/digital memory system.</li>
+                </ul>
+            </section>
+
+            <section class="section container">
+                <h2>Representative Code Snippet (Arduino)</h2>
+                <pre class="codeblock" aria-label="Arduino code snippet"><code>//global variables
+//ensures clock is only read once per up/down cycle
+int CLOCK_HI = 0;
+//lockout for jump
+int jumped = 0;
+//jump variable
+int jump = 0;
+//which LED was on in the previous state?
+int LED0 = 0;
+int LED1 = 0;
+int LED2 = 0;
+//trigger LED sequence
+int LED = 0;
+//game state
+int game = 1;
+//test
+int enable = 0;
+//score tracking
+int score = 0;
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  //pin declaration
+  //LIGHT0
+  pinMode(2, OUTPUT);
+  //LIGHT1
+  pinMode(3, OUTPUT);
+  //LIGHT2
+  pinMode(4, OUTPUT);
+  //JUMP
+  pinMode(5, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+</code></pre>
+                <p class="fineprint">For full code, see the Appendix in the manual.</p>
+            </section>
+
+            <section id="references" class="section container">
+                <h2>References</h2>
+                <p>
+                    Full design notes, schematics, operating conditions, and citations are documented in the project
+                    manual (PDF).
+                </p>
+                <div class="pdf-container">
+                    <iframe src="/static/pdfs/IE Omega Lab Project Manual.docx.pdf"></iframe>
+                </div>
+            </section>
+
+            <section class="section container links">
+                <a href="/static/assets/data/dinogame.asc" download="dinogame">📂 LTSpice File</a>
+                <a href="../index.html#projects">← Back to Projects</a>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <p>© <span id="year"></span> Pritom Paul • Analog Dino Game</p>
+        </footer>
+
+        <script src="/static/assets/js/project.js" defer></script>
+    </body>
+</html>

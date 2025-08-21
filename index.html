@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pritom Paul — Portfolio</title>
+        <meta name="description" content="Portfolio of Your Name: experience, projects, and contact." />
+        <link rel="preload" href="/static/assets/css/styles.css" as="style" />
+        <link rel="stylesheet" href="/static/assets/css/styles.css" />
+        <link
+            rel="icon"
+            href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Cpath fill='%2300c2a8' d='M12 2l8 5v10l-8 5l-8-5V7z'/%3E%3C/svg%3E"
+        />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+
+        <!-- Header / Nav -->
+        <header class="site-header" data-sticky>
+            <div class="container nav-wrap">
+                <a class="brand" href="#home" aria-label="Go to home">
+                    <span class="brand-logo" aria-hidden="true">PP</span>
+                    <span class="brand-text">Pritom</span>
+                </a>
+
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                </button>
+
+                <nav id="nav" class="nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="theme-toggle">
+                            <button id="themeBtn" type="button" aria-label="Toggle theme">🌓</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main">
+            <!-- Hero -->
+            <section id="home" class="section hero">
+                <div class="container hero-grid">
+                    <div class="hero-media">
+                        <!-- Replace src with your headshot -->
+                        <img src="/static/images/profile-pic.PNG" alt="Headshot of Your Name" class="headshot" />
+                    </div>
+                    <div class="hero-copy">
+                        <h1 class="title-xxl">Pritom Paul</h1>
+                        <p class="lead">
+                            I enjoy problem solving by combining my hardware and software skills.<br />Explore my
+                            portfolio!
+                        </p>
+                        <div class="hero-cta">
+                            <a class="btn btn-primary" href="#projects">View Projects</a>
+                            <a class="btn btn-ghost" href="#experience">Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience (Carousel) -->
+            <section id="experience" class="section alt">
+                <div class="container">
+                    <h2 class="title-xl">Experience</h2>
+
+                    <div class="carousel" data-carousel="experience">
+                        <button class="carousel-nav prev" aria-label="Previous item" data-action="prev">‹</button>
+                        <div
+                            class="carousel-track"
+                            role="region"
+                            aria-roledescription="carousel"
+                            aria-label="Experience"
+                        >
+                            <!-- Each .card is one slide. Edit/add as needed -->
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/ecse_logo_new.svg" alt=" RPI ECSE logo" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Robotics Test Engineering (Research Assistant)</h3>
+                                    <p class="meta">
+                                        Department of ECSE —
+                                        <time>May 2025</time> – Present
+                                    </p>
+                                    <ul class="bullets">
+                                        <li>Integrated hardware for AL Vision Robotics</li>
+                                        <li>Hardware debug and robot deployment</li>
+                                        <li>Web Developer for the Robotics Repository Website</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/ecse_logo_new.svg" alt="ECSE logo" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Energy and Power Systems (Research Assistant)</h3>
+                                    <p class="meta">
+                                        Department of ECSE —
+                                        <time>Nov 2024</time> –
+                                        <time>Dec 2024</time>
+                                    </p>
+                                    <ul class="bullets">
+                                        <li>
+                                            Designed a Simscape lab module on Power Electronics and PWM motor control.
+                                        </li>
+                                        <li>Authored a lab manual integrating theory, simulation, and assessments.</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/art_center_logo.png" alt="Arts Center logo" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Software Engineer (Intern)</h3>
+                                    <p class="meta">
+                                        The Arts Center of the Capital Region —
+                                        <time>Sep 2024</time> –
+                                        <time>Nov 2024</time>
+                                    </p>
+                                    <ul class="bullets">
+                                        <li>Led of Visual Schedule App — class calendar for staff and students</li>
+                                        <li>Interging python with Google Cloud Platform and MySQL database</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/RPI200.jpeg" alt="RPI UGSA" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Undergraduate Student Assistant</h3>
+                                    <p class="meta">
+                                        Rensselaer Polytechnic Institute —
+                                        <time>Sep 2024</time> –
+                                        <time>Dec 2024</time>
+                                    </p>
+                                    <ul class="bullets">
+                                        <li>
+                                            Mentored 200+ students in Analog Circuit Design through labs and workshops.
+                                        </li>
+                                        <li>
+                                            Provided technical guidance and created instructional materials to improve
+                                            comprehension.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/RPI_logo.png" alt="University logo" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">B.S. in Computer & Systems Engineering</h3>
+                                    <p class="meta">
+                                        Rensselaer Polytechnic Institute — <time>2022</time> –
+                                        <time>2026</time>
+                                    </p>
+                                    <p>Relevant coursework:</p>
+                                    <ul class="bullets two-col">
+                                        <li>Analog Electronics</li>
+                                        <li>Digital Electronics</li>
+                                        <li>Data Structures & Algorithms</li>
+                                        <li>Materials</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                        <button class="carousel-nav next" aria-label="Next item" data-action="next">›</button>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="skills">
+                        <h3 class="title-lg">Skills</h3>
+                        <div class="skills-grid">
+                            <div>
+                                <h4 class="title-sm">Technical Skills</h4>
+                                <ul class="tags">
+                                    <li>Embedded Systems</li>
+                                    <li>Analog/Digital Processing</li>
+                                    <li>Control System</li>
+                                    <li>Instrumentation</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="title-sm">Programming</h4>
+                                <ul class="tags">
+                                    <li>C/C++</li>
+                                    <li>Python</li>
+                                    <li>Verilog</li>
+                                    <li>SystemVerilog</li>
+                                    <li>VHDL</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="title-sm">Tools & Frameworks</h4>
+                                <ul class="tags">
+                                    <li>Git</li>
+                                    <li>Linux/Unix</li>
+                                    <li>MySQL</li>
+                                    <li>SQLite</li>
+                                    <li>Google Cloud</li>
+                                    <li>Flask</li>
+                                    <li>Matlab</li>
+                                    <li>Simulink</li>
+                                    <li>Mircocontrollers</li>
+                                    <li>FPGA</li>
+                                    <li>Multimeters</li>
+                                    <li>Oscilloscope</li>
+                                    <li>Scopy</li>
+                                    <li>LTspice</li>
+                                    <li>Signal Generator</li>
+                                    <li>CAD</li>
+                                    <li>SMT Soldering</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects (Carousel) -->
+            <section id="projects" class="section">
+                <div class="container">
+                    <h2 class="title-xl">Projects</h2>
+
+                    <div class="carousel" data-carousel="projects">
+                        <button class="carousel-nav prev" aria-label="Previous item" data-action="prev">‹</button>
+                        <div class="carousel-track" role="region" aria-roledescription="carousel" aria-label="Projects">
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/project-1.jpg" alt="Project 1" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">RPI Grade Calculator</h3>
+                                    <p>
+                                        An app that RPI students can easily calculate and track their final course grade
+                                        based on thier inputs.
+                                    </p>
+                                    <a
+                                        class="btn btn-link"
+                                        href="https://github.com/PritomP25/RPIGradesCalculator"
+                                        target="_blank"
+                                        >GitHub</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/P1_final_circuit.jpg" alt="Project 2" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Analog Dino Game</h3>
+                                    <p>
+                                        ECSE-2050 Omega Lab Project idea where we replicate the Google Dino Game but in
+                                        analog devices. Proof of Concepts between milestones of diodes, MOSFETs, and
+                                        BJTs.
+                                    </p>
+
+                                    <a class="btn btn-link" href="proj_dino_analog.html">Learn More</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/video_compressor_img.jpeg" alt="Project 3" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Video Compression</h3>
+                                    <p>
+                                        Final project for ECSE-4320 where I replicate the progress of spatial video
+                                        compression pipeline that supports baseline processing, multi-threading, and
+                                        SIMD optimizations.
+                                    </p>
+
+                                    <a
+                                        class="btn btn-link"
+                                        href="https://github.com/PritomP25/Adanced-Computer-System/tree/main/Project5"
+                                        target="_blank"
+                                        >GitHub</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/PipelineProcessor_w_Hazard.png" alt="Project 4" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">RISC-V Pipelined Processor</h3>
+                                    <p>
+                                        An improved SystemVerilog implemenation of a 5-stage pipeline architecture of a
+                                        RISC-V Processor with a Hazard Unit.
+                                    </p>
+
+                                    <a
+                                        class="btn btn-link"
+                                        href="https://github.com/PritomP25/RISCV-Pipelined-Processor-with-Hazard-Unit"
+                                        target="_blank"
+                                        >GitHub</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/multicycle_processor.png" alt="Project 5" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">RISC-V Multicycle Processor</h3>
+                                    <p>
+                                        An SystemVerilog implemenation designed to execute a subset of RISC-V
+                                        instruction set architecture (ISA).
+                                    </p>
+
+                                    <a
+                                        class="btn btn-link"
+                                        href="https://github.com/PritomP25/RISCV-Multicycle-Processor"
+                                        target="_blank"
+                                        >GitHub</a
+                                    >
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/fire_alarm.jpg" alt="Project 6" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Smart Fire Alarm</h3>
+                                    <p>
+                                        A user-friendly, accessible fire alarm system that meets the needs of disabled
+                                        individuals and offers smart functionalities for broader user appeal in U.S.
+                                        residences.
+                                    </p>
+
+                                    <a class="btn btn-link" href="/proj_smart_alarm.html">Learn More</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/P3_Weather_station.jpg" alt="Project 7" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Solar Powered Weather Station</h3>
+                                    <p>
+                                        An analog weather station used to detects temperature, light, and humidity
+                                        outside of your home.
+                                    </p>
+
+                                    <a class="btn btn-link" href="/proj_solar_weathering.html">Learn More</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-media">
+                                    <img src="/static/images/P4_Encom_final.jpg" alt="Robotics car navigating track" />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Robotics Car Guidance System</h3>
+                                    <p>
+                                        Modified a robotic car for autonomous navigation with I2C ultrasonic sensors, as
+                                        well as other projects like maze finder and path follower.
+                                    </p>
+                                    <a class="btn btn-link" href="/proj_TIRSLK_car.html">Learn More</a>
+                                </div>
+                            </article>
+
+                            <!-- <article class="card">
+                                <div class="card-media">
+                                    <img
+                                        src="https://picsum.photos/seed/project4/640/360"
+                                        alt="DIY clock weather tracker"
+                                    />
+                                </div>
+                                <div class="card-body">
+                                    <h3 class="title-md">Alarm Clock & Weather Tracker</h3>
+                                    <p class="meta"><time>Jan 2024</time></p>
+                                    <ul class="bullets">
+                                        <li>Seven-segment display built from scratch.</li>
+                                        <li>Weather display + timekeeping algorithms.</li>
+                                    </ul>
+                                    <a class="btn btn-link" href="#" target="_blank" rel="noopener">Learn More</a>
+                                </div>
+                            </article> -->
+                        </div>
+                        <button class="carousel-nav next" aria-label="Next item" data-action="next">›</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="section alt">
+                <div class="container">
+                    <h2 class="title-xl">Get in touch</h2>
+                    <div class="contact-links">
+                        <a class="contact" href="mailto:Pritompaul5108@gmail.com">Email</a>
+                        <a
+                            class="contact"
+                            href="https://www.linkedin.com/in/pritom-paul3"
+                            target="_blank"
+                            rel="noopener"
+                            >LinkedIn</a
+                        >
+                        <a class="contact" href="https://github.com/PritomP25" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <nav aria-label="Footer">
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <p class="fineprint">© <span id="year"></span> Pritom Paul</p>
+                <button class="btn useless-btn" type="button">Useless Button</button>
+            </div>
+        </footer>
+
+        <script src="/static/assets/js/script.js" defer></script>
+    </body>
+</html>

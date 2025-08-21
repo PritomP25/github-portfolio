@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Robotics Car Guidance System – Portfolio Showcase</title>
+        <meta
+            name="description"
+            content="An embedded system car that uses ranger sensing and encoders to autonomously navigate barriers."
+        />
+        <link rel="stylesheet" href="/static/assets/css/project.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <div class="site-header robotics-car">
+                <div class="container">
+                    <h1 class="project-title">🤖 Robotics Car Guidance System</h1>
+                    <p class="subtitle">Embedded System for Autonomous Obstacle Navigation</p>
+                    <ul class="quick-facts" role="list">
+                        <li><strong>Type:</strong> Embedded Systems Project</li>
+                        <li><strong>Core:</strong> Ranger sensing + PWM motor control</li>
+                        <li><strong>Goal:</strong> Autonomous track navigation with barrier avoidance</li>
+                    </ul>
+                    <p>This project was a joint effort with me and Eric Lin.</p>
+                    <a class="btn" href="#demo">Jump to Demo</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- OVERVIEW -->
+            <section class="section container">
+                <h2>Overview</h2>
+                <p>
+                    The Robotics Car Guidance System was designed to autonomously navigate a barrier-filled track. Using
+                    a <strong>ranger sensor</strong> to detect distances and <strong>wheel encoders</strong> for turning
+                    precision, the car decides whether to move straight, turn clockwise, or counterclockwise. PWM motor
+                    control and H-Bridge drivers provide smooth and precise actuation.
+                </p>
+            </section>
+
+            <!-- DEMO -->
+            <section id="demo" class="section container">
+                <h2>Demo</h2>
+                <div class="media-grid">
+                    <figure class="media">
+                        <img src="/static/images/P4_Barrier_Map.png" alt="Robotics car setup with sensor" />
+                        <figcaption>
+                            The figure above is the path that we need to follow and lap around the track. The red box is
+                            the marker that I can signal the car with the ranger to turn a certain direction.
+                        </figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P4_Encom_final.jpg" alt="Robotics car setup with sensor" />
+                        <figcaption>Car with ranger sensor and motor driver circuitry.</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P4_final_highblock.png" alt="System Design" />
+                        <figcaption>
+                            This high level diagram is our main code that demonstrate what our code would accomplish to
+                            complete the task. For more information, check the project documentation down below.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- EQUIPMENT -->
+            <section class="section container">
+                <h2>Equipment &amp; Tools</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Microcontroller &amp; Peripherals</h3>
+                        <ul>
+                            <li>TI MSP430 (GPIO, timers, ISRs)</li>
+                            <li>PWM motor control</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Sensing</h3>
+                        <ul>
+                            <li>Ultrasonic ranger sensor</li>
+                            <li>Wheel encoders</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Actuation</h3>
+                        <ul>
+                            <li>DC motors</li>
+                            <li>H-Bridge motor driver</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Software Tools</h3>
+                        <ul>
+                            <li>Code Composer Studio (C programming)</li>
+                            <li>Serial print debugging</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Test Equipment</h3>
+                        <ul>
+                            <li>Track rulers/markers for validation</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- TECHNICAL BREAKDOWN -->
+            <section class="section container">
+                <h2>Technical Breakdown</h2>
+
+                <details class="detail" open>
+                    <summary><strong>Control Logic</strong></summary>
+                    <div class="detail-body">
+                        <ul>
+                            <li>Checks every 100 ms with ranger sensor input.</li>
+                            <li>Ranger > 40 cm → drive straight.</li>
+                            <li>Ranger ≤ 10 cm → 90° counterclockwise turn.</li>
+                            <li>20 cm &lt; ranger ≤ 40 cm → 90° clockwise turn.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>Turning Implementation</strong></summary>
+                    <div class="detail-body">
+                        <p>
+                            Wheel encoders compute the arc length for 90° turns. H-Bridge GPIOs switch motor direction,
+                            and motors are disabled mid-turn for precision.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>PWM Speed Control</strong></summary>
+                    <div class="detail-body">
+                        <p>
+                            Wheel speed regulated using PWM capture mode. Desired speed is constant, with error
+                            correction applied. Min/max duty cycles enforced for stability.
+                        </p>
+                    </div>
+                </details>
+            </section>
+
+            <!-- CHALLENGES -->
+            <section class="section container">
+                <h2>Challenges &amp; Trade-offs</h2>
+                <ul class="bullets">
+                    <li><strong>Ranger sensitivity:</strong> Fixed repeated turning issue with a 3-read delay loop.</li>
+                    <li><strong>Straight driving drift:</strong> Calibrated speeds for stability at higher values.</li>
+                    <li><strong>Abandoned bumper design:</strong> Simplified by moving to ranger sensing for turns.</li>
+                </ul>
+            </section>
+
+            <!-- FUTURE -->
+            <section class="section container">
+                <h2>Future Improvements</h2>
+                <ul class="bullets">
+                    <li>Optimize ranger frequency for smoother navigation.</li>
+                    <li>Improve calibration for high-speed stability.</li>
+                    <li>Add additional sensors (IR, LIDAR) for obstacle detection.</li>
+                    <li>Implement wireless telemetry for live tracking.</li>
+                </ul>
+            </section>
+
+            <!-- LEARNED -->
+            <section class="section container">
+                <h2>What I Learned</h2>
+                <ul class="bullets">
+                    <li>Designing autonomous navigation with real-time feedback.</li>
+                    <li>Applying PWM regulation and wheel encoders in practice.</li>
+                    <li>Debugging ISR-driven embedded systems with sensor delays.</li>
+                    <li>Understanding sensor fusion for reliable robotics control.</li>
+                </ul>
+            </section>
+
+            <!-- REFERENCES -->
+            <section id="references" class="section container">
+                <h2>References</h2>
+                <p>Full documentation, schematics, and experimental data are available in the project report.</p>
+                <div class="pdf-container">
+                    <iframe src="/static/pdfs/Emcon Final Project .pdf"></iframe>
+                </div>
+            </section>
+
+            <!-- Side Fun Projects -->
+            <section class="section container">
+                <h2>Side Project Demo</h2>
+                <div class="media-grid">
+                    <figure class="media">
+                        <video controls playsinline poster="/static/images/P4_proj1_car.jpg">
+                            <source src="/static/videos/07-P4_proj1_vid.mov" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Demo: Press Bumpers to turn directions (defined angle) in a track.</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <video controls playsinline poster="">
+                            <source src="" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Demo: Make the car follow the line in a R-path.</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <video controls playsinline poster="">
+                            <source src="" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Demo: Make the car follow the line in a I-path.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section container links">
+                <a href="../index.html#projects">← Back to Projects</a>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <p>© <span id="year"></span> Pritom Paul • Robotics Car Guidance System</p>
+        </footer>
+
+        <script src="/static/assets/js/project.js" defer></script>
+    </body>
+</html>

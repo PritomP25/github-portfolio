@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Solar Weathering Station – Portfolio Showcase</title>
+        <meta name="description" content="A renewable-powered embedded system for environmental monitoring." />
+        <link rel="stylesheet" href="/static/assets/css/project.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <div class="site-header solar-weathering">
+                <div class="container">
+                    <h1 class="project-title">☀️ Solar Weathering Station</h1>
+                    <p class="subtitle">A Renewable-Powered Environmental Monitoring Platform</p>
+                    <ul class="quick-facts" role="list">
+                        <li><strong>Type:</strong> Analog Circuit Project</li>
+                        <li><strong>Core:</strong> 1st/2nd Order Filters + solar power harvesting</li>
+                        <li><strong>Goal:</strong> Monitor environmental conditions affecting material weathering</li>
+                    </ul>
+                    <p>This project was a joint effort with me, Andy Huang, and Eric Lin.</p>
+                    <a class="btn" href="#demo">Jump to Demo</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- OVERVIEW -->
+            <section class="section container">
+                <h2>Overview</h2>
+                <p>
+                    The Solar Weathering Station integrates <strong>solar energy harvesting</strong>,
+                    <strong>sensor data acquisition</strong>, and
+                    <strong>circuit components like op-amps and filters</strong>. It continuously monitors environmental
+                    factors like <em>temperature, humidity, light intensity, and UV exposure</em> to study material
+                    weathering effects in outdoor conditions.
+                </p>
+            </section>
+
+            <!-- DEMO -->
+            <section id="demo" class="section container">
+                <h2>Demo</h2>
+                <div class="media-grid">
+                    <figure class="media">
+                        <img
+                            src="/static/images/P3_EC_finalcircuit_breakthru.png"
+                            alt="Solar weathering station setup"
+                        />
+                        <figcaption>Final Circuit Breakthru</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P3_EC_blockdigram.png" alt="Sensor array and Arduino board" />
+                        <figcaption>Block Diagram</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P3_EC_ltpsice_schamtic.png" alt="Sensor array and Arduino board" />
+                        <figcaption>LTSpice simulation</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <video controls playsinline poster="/static/images/P3_Weather_station.jpg">
+                            <source src="" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Demo: live video of us debugging for final demo</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- EQUIPMENT -->
+            <section class="section container">
+                <h2>Equipment &amp; Tools</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Power &amp; IC</h3>
+                        <ul>
+                            <li>Solar panel (energy source)</li>
+                            <li>555 Timer</li>
+                            <li>Op-amps</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Sensors &amp; Output</h3>
+                        <ul>
+                            <li>Photoresistors</li>
+                            <li>Humidity sensor</li>
+                            <li>Thermistor</li>
+                            <li>Buzzer</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Components</h3>
+                        <ul>
+                            <li>Resistors</li>
+                            <li>Capacitor</li>
+                            <li>Inductors</li>
+                            <li>Wires</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>M1K</li>
+                            <li>LTSpice (power simulation)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Test Equipment</h3>
+                        <ul>
+                            <li>Multimeter</li>
+                            <li>Oscilloscope</li>
+                            <li>Lab power supply</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- TECHNICAL BREAKDOWN -->
+            <section class="section container">
+                <h2>Technical Breakdown</h2>
+
+                <details class="detail" open>
+                    <summary><strong>Power Management</strong></summary>
+                    <div class="detail-body">
+                        <p>
+                            Designed a <strong>solar harvesting circuit</strong> with regulator stages to ensure stable
+                            5V/3.3V operation. Energy stored in a capacitor or battery provides power during cloudy
+                            periods, verified via LTSpice efficiency analysis.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>Data Acquisition</strong></summary>
+                    <div class="detail-body">
+                        <p>
+                            Sensors continuously sampled by Op-Amps. Thresholds set for each nature's exposure for
+                            allowing certain information to be pass thru via their designed filters. Data shown on
+                            LTspice and logged via serial for long-term studies.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>System Operation</strong></summary>
+                    <div class="detail-body">
+                        <ol>
+                            <li>
+                                <strong>Idle:</strong> Low power mode when sunlight is weak. Use energy from solar
+                                panel.
+                            </li>
+                            <li><strong>Active:</strong> Solar harvesting energy from capacitor to power sensors.</li>
+                        </ol>
+                    </div>
+                </details>
+            </section>
+
+            <!-- CHALLENGES -->
+            <section class="section container">
+                <h2>Challenges &amp; Trade-offs</h2>
+                <ul class="bullets">
+                    <li>Ensuring <strong>energy balance</strong> between harvesting and load.</li>
+                    <li>Choosing <strong>storage capacity</strong> for cloudy conditions.</li>
+                    <li>Calibrating sensors to handle real-world fluctuations.</li>
+                    <li>Managing solar panel to sensor with necessarily power consumption</li>
+                </ul>
+            </section>
+
+            <!-- FUTURE -->
+            <section class="section container">
+                <h2>Future Improvements</h2>
+                <ul class="bullets">
+                    <li>Wireless communication (LoRa/Wi-Fi) for remote data upload.</li>
+                    <li>Upgrade to low-power MCUs (Arduino, ESP32-S2, STM32L series).</li>
+                    <li>Data logging to SD card for extended studies.</li>
+                    <li>Use larger solar arrays or supercapacitors for reliability.</li>
+                </ul>
+            </section>
+
+            <!-- LEARNED -->
+            <section class="section container">
+                <h2>What I Learned</h2>
+                <ul class="bullets">
+                    <li>Practical solar energy harvesting and regulation techniques.</li>
+                    <li>Integration of multiple sensors via analog persective.</li>
+                    <li>Uses of op-amps and 1st/2nd order filters.</li>
+                    <li>Designing for outdoor reliability and environmental resilience.</li>
+                </ul>
+            </section>
+
+            <!-- REFERENCES -->
+            <section id="references" class="section container">
+                <h2>References</h2>
+                <p>Full documentation, schematics, and test results are available in the project report.</p>
+                <div class="pdf-container">
+                    <iframe src="/static/pdfs/Omega Lab MS1_MS3 Project Manual.pdf"></iframe>
+                </div>
+            </section>
+
+            <section class="section container links">
+                <a href="../index.html#projects">← Back to Projects</a>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <p>© <span id="year"></span> Pritom Paul • Solar Weathering Station</p>
+        </footer>
+
+        <script src="/static/assets/js/project.js" defer></script>
+    </body>
+</html>

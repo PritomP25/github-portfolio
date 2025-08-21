@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Smart Fire Alarm – Portfolio Showcase</title>
+        <meta
+            name="description"
+            content="A sensor-based intelligent fire alarm using Arduino, flame, temperature, and gas detection."
+        />
+        <link rel="stylesheet" href="/static/assets/css/project.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <div class="site-header smart-alarm">
+                <div class="container">
+                    <h1 class="project-title">🔥 Smart Fire Alarm</h1>
+                    <p class="subtitle">An Intelligent, Sensor-Based Safety System</p>
+                    <ul class="quick-facts" role="list">
+                        <li><strong>Type:</strong> IoT / Embedded Systems Project</li>
+                        <li><strong>Core:</strong> Arduino Uno + multi-sensor array</li>
+                        <li><strong>Goal:</strong> Real-time fire hazard detection &amp; alerts</li>
+                    </ul>
+                    <a class="btn" href="#demo">Jump to Demo</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- OVERVIEW -->
+            <section class="section container">
+                <h2>Mission Statement</h2>
+                <p>
+                    To create a user-friendly, accessible fire alarm system that meets the needs of
+                    <strong>disabled individuals</strong> and offers <strong>smart functionalities</strong> for boarder
+                    user appeal in U.S. residences.
+                </p>
+            </section>
+
+            <section class="section container">
+                <h2>Overview</h2>
+                <p>
+                    The Smart Fire Alarm integrates <strong>flame, gas, and temperature sensors</strong> with an
+                    <strong>Arduino Uno</strong> to detect hazardous conditions in real time. Unlike traditional smoke
+                    detectors, it uses multi-sensor fusion to reduce false alarms and provides layered outputs including
+                    a buzzer, LCD, and LED status indicators.
+                </p>
+                <p>
+                    Below is each person's subsystem help to build this system as a whole. This project incourapte both
+                    hardware and software tasks from Detection system to Full Stack App in our mobile devices.
+                </p>
+                <figure class="media">
+                    <img src="/static/images/P2_Subsystem_block_diagram.png" alt="Individuals Subsystem Block" />
+                    <figcaption>
+                        A diagram illustrates all the subsystems in the final design, which can be divided into two
+                        groups: hardware and software.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- DEMO -->
+            <section id="demo" class="section container">
+                <h2>Detection System Demo</h2>
+                <div class="media-grid">
+                    <figure class="media">
+                        <video controls playsinline poster="/static/images/P2_Firealarm_PoC physical circuit.jpg">
+                            <source src="/static/videos/01-Sensors_testing.mov" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Demo video: alarm triggers when flame is detected.</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P2_cirucit schamtic for sensors.png" alt="Detection System Schamtic" />
+                        <figcaption>Schamtic Diagram.</figcaption>
+                    </figure>
+                    <figure class="media">
+                        <img src="/static/images/P2_intial design.jpg" alt="Smart Fire Alarm breadboard setup" />
+                        <figcaption>Inital Design.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- EQUIPMENT -->
+            <section class="section container">
+                <h2>Equipment &amp; Tools</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Microcontroller</h3>
+                        <ul>
+                            <li>Arduino Uno</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Sensors</h3>
+                        <ul>
+                            <li>Flame sensor (IR)</li>
+                            <li>Gas sensor MQ-2</li>
+                            <li>Temperature sensor LM35</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Outputs</h3>
+                        <ul>
+                            <li>Piezo buzzer</li>
+                            <li>16x2 LCD display</li>
+                            <li>LED indicators (status &amp; warning)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Other Components</h3>
+                        <ul>
+                            <li>Breadboard, jumper wires, resistors</li>
+                            <li>5V regulated supply</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Software Tools</h3>
+                        <ul>
+                            <li>Arduino IDE (C programming)</li>
+                            <li>Proteus (circuit simulation)</li>
+                            <li>LTSpice (sensor behavior)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Testing</h3>
+                        <ul>
+                            <li>Multimeter</li>
+                            <li>Lighter/candle for flame tests</li>
+                            <li>Incense/smoke for gas tests</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- TECHNICAL BREAKDOWN -->
+            <section class="section container">
+                <h2>Technical Breakdown</h2>
+
+                <details class="detail" open>
+                    <summary><strong>System Design</strong></summary>
+                    <div class="detail-body">
+                        <ul>
+                            <li>Inputs: flame, gas, and temperature sensors feed Arduino.</li>
+                            <li>Logic: sensor values compared against safety thresholds.</li>
+                            <li>Outputs: buzzer, LCD, and LEDs provide user feedback.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="detail">
+                    <summary><strong>Operation Modes</strong></summary>
+                    <div class="detail-body">
+                        <ol>
+                            <li><strong>Normal:</strong> LCD shows “Safe,” green LED on, buzzer off.</li>
+                            <li><strong>Warning:</strong> Elevated temp/gas; yellow LED + LCD warning.</li>
+                            <li><strong>Alarm:</strong> Flame or critical gas detected; buzzer + red LED.</li>
+                        </ol>
+                    </div>
+                </details>
+            </section>
+
+            <!-- CHALLENGES -->
+            <section class="section container">
+                <h2>Challenges &amp; Trade-offs</h2>
+                <ul class="bullets">
+                    <li><strong>Gas sensor calibration</strong> required to avoid false triggers.</li>
+                    <li><strong>Flame sensor noise</strong> under bright light required filtering.</li>
+                </ul>
+            </section>
+
+            <!-- FUTURE -->
+            <section class="section container">
+                <h2>Future Improvements</h2>
+                <ul class="bullets">
+                    <li>Better Shell</li>
+                    <li>Better Wireless alerts (IoT integration).</li>
+                    <li>Rechargeable battery backup for outages.</li>
+                    <li>Backend functionalities upgrade for faster processing + cloud logging.</li>
+                </ul>
+            </section>
+
+            <!-- LEARNED -->
+            <section class="section container">
+                <h2>What I Learned</h2>
+                <ul class="bullets">
+                    <li>Practical circuit debugging, simulation, and testing skills.</li>
+                    <li>Dealing with noise and false positives in sensor-driven systems.</li>
+                    <li>Designing for usability and safety in embedded systems.</li>
+                </ul>
+            </section>
+
+            <!-- REFERENCES -->
+            <section id="references" class="section container">
+                <h2>References</h2>
+                <p>Full documentation, schematics, and test results are available in the project report.</p>
+                <div class="pdf-container">
+                    <iframe src="/static/pdfs/IED-PD1 Final Report - Smart Fire Alarm.pdf"></iframe>
+                </div>
+            </section>
+
+            <section class="section container links">
+                <a href="../index.html#projects">← Back to Projects</a>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../index.html#projects">Projects</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <p>© <span id="year"></span> Pritom Paul • Smart Fire Alarm</p>
+        </footer>
+
+        <script src="/static/assets/js/project.js" defer></script>
+    </body>
+</html>
